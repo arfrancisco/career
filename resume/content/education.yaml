@@ -1,0 +1,11 @@
+# No education section was present in the original resume, so this file is
+# empty for now. The build simply omits the Education section when this list
+# is empty. Add entries like the example below (uncommented) whenever you're
+# ready to include one.
+#
+# - institution: University Name
+#   degree: "B.S. in Computer Science"
+#   dates: "2007-2011"
+#   location: "City, Country"
+
+[]

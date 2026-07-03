@@ -1,0 +1,44 @@
+name: Build Resume
+
+on:
+  push:
+    paths:
+      - "resume/**"
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: resume
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install jinja2 pyyaml
+
+      - name: Install LaTeX (TeX Live, minimal scheme + needed packages)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended
+
+      - name: Build all resume variants
+        run: python3 scripts/build_all.py
+
+      - name: Upload PDF artifact(s)
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdfs
+          path: resume/output/*.pdf
+          if-no-files-found: error

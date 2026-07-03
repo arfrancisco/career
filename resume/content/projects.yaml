@@ -1,0 +1,12 @@
+# No projects section was present in the original resume, so this file is
+# empty for now. The build omits the Projects section when this list is
+# empty. Add entries like the example below (uncommented) whenever you're
+# ready to include one.
+#
+# - name: Project Name
+#   dates: "2024"
+#   url: "https://github.com/arfrancisco/project"
+#   bullets:
+#     - "What it does and the impact it had."
+
+[]

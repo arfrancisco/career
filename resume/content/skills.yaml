@@ -1,0 +1,20 @@
+# Each entry is a category with a label and a comma-separated list of skills.
+# Order here is the order they render in the resume.
+
+- category: Backend
+  items: "Ruby on Rails (API & monolith), RESTful services, GraphQL"
+
+- category: Frontend
+  items: "ES6+, React, JavaScript, HTML, CSS"
+
+- category: Database
+  items: "MySQL, PostgreSQL"
+
+- category: Version Control
+  items: "Docker, CI/CD, Git"
+
+- category: Testing
+  items: "RSpec, CI/CD"
+
+- category: Others
+  items: "Agile, Mentoring, Technical Decision-Making, Project Management"

@@ -1,0 +1,47 @@
+# Each entry is one job. Order = display order (most recent first).
+# `tags` controls which resume variants include this entry (see scripts/build.py
+# and README.md "Creating Additional Resume Variants" for details).
+# Leave `tags` empty/omitted to include the entry in every variant.
+
+- company: Helpling Group
+  title: Software Engineer
+  dates: "2023-2025"
+  location: "Berlin, DE"
+  url: "https://www.helpling.com/"
+  bullets:
+    - "Worked closely with product owners to evaluate the feasibility, impact, and value of proposed features. Proactively challenged assumptions and provided accurate effort estimations to help with decision making. Created comprehensive technical documentation to support clarity and provide a reliable source of truth."
+    - "Defined implementation strategies focused on scalability and maintainability. Helped establish coding standards to improve efficiency and reduce technical debt. Actively supported and mentored team members, resolving blockers and fostering a culture of collaboration."
+
+- company: Radiant Law
+  title: Software Engineer
+  dates: "2021-2024"
+  location: "Cape Town, SA"
+  url: "https://www.radiantlaw.com/"
+  bullets:
+    - "As the sole developer, I took on the challenge of transforming a fragile, monolithic codebase that was rushed to production with no tests, documentation, or clear structure. The system had been in active use for years, making changes risky and complex. Collaborated with users to better understand critical workflows before planning any refactor."
+    - "Successfully prioritized and refactored core components, introduced automated testing, and created comprehensive documentation. Significantly improving stability and developer onboarding. Achieved this while simultaneously delivering new features and fixing critical bugs."
+
+- company: Launchpad Recruits
+  title: Software Engineer
+  dates: "2018-2023"
+  location: "London, UK"
+  url: ""
+  bullets:
+    - "Joined the team to address major performance issues caused by heavy database operations and slow page rendering. Actively participated in architectural discussions to separate the frontend from the backend, leading to the adoption of React.js for the UI and GraphQL as the API layer."
+    - "Primarily responsible for converting existing views to React.js, implementing GraphQL endpoints, and creating technical documentation to support the new architecture. Collaborated closely with stakeholders to prioritize components for migration, ensuring minimal disruption to daily operations."
+
+- company: Cohort Solutions
+  title: Software Developer
+  dates: "2016-2018"
+  location: "Brisbane, AU"
+  url: ""
+  bullets:
+    - "Worked remotely with a Brisbane-based team, building and maintaining a secure live payment app in Ruby on Rails and React. Despite no prior React experience, I quickly ramped up and delivered features under a strict peer review process."
+
+- company: Clinic-IT
+  title: Software Developer
+  dates: "2011-2016"
+  location: "New York, US"
+  url: ""
+  bullets:
+    - "Joined as part of a small pioneer team with no standards or processes in place. Helped establish coding practices, peer reviews, and procedures, while retrofitting legacy apps for stability. Wore multiple hats; DevOps, tech support, and development. Gaining strong technical expertise and a solid work ethic."
