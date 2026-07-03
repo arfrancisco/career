@@ -2,7 +2,8 @@
 
 A resume that builds like software: content lives in plain YAML/Markdown,
 presentation lives in a LaTeX template, and a small Python script glues
-them together into a one-page, ATS-friendly PDF.
+them together into an ATS-friendly PDF (as many pages as the real content
+honestly earns — currently 2, see "Visual design" below).
 
 ```
 resume/
@@ -64,6 +65,34 @@ LaTeX by hand) — with a 10+ year history and multiple planned variants, the
 one-time cost of this setup is small compared to years of hand-editing
 LaTeX tables every time a bullet changes.
 
+## Visual design
+
+The template deliberately stops short of copying "designed" resume
+templates (multi-column skill grids, decorative skill-level ratings,
+icon-only contact fields) even though they can look nicer — those are
+exactly the things that break ATS and AI-tool text parsing: columns can
+scramble reading order, dot/star ratings carry no extractable signal, and
+icon-only fields can extract as garbage or nothing. Color, by contrast,
+is purely a rendering attribute — it doesn't touch the underlying text
+layer at all — so a restrained accent color is used for section headers,
+the job/company line, and the name (see `MidnightBlue` in
+`templates/resume.tex.jinja`) without any parsing risk.
+
+Body text uses the `XCharter` font instead of LaTeX's Computer Modern
+default, which reads as more "designed print document" and less "generic
+LaTeX output." Fonts are always embedded and subsetted directly into the
+PDF by `pdflatex`, so this renders identically on any machine regardless
+of whether the viewer has the font installed — verified by inspecting the
+PDF's embedded font objects, not just assumed.
+
+Page length isn't fixed at one page. The template used to force everything
+onto one page with tightly negative spacing; that constraint was removed
+once experience content justified more room. A two-page resume gets
+roughly 2.3x more callbacks than one-page for 10+ years of experience
+(ResumeGo study), as long as the second page adds genuine substance.
+`\Needspace` is used per job entry so an entry moves to the next page as a
+whole rather than splitting a heading from its own bullets.
+
 ## Editing the resume
 
 Almost all day-to-day edits happen in `content/`, never in `templates/`:
@@ -89,29 +118,36 @@ than the words on the page.
 **Dependencies:**
 
 - A LaTeX distribution providing `pdflatex` (e.g. TeX Live — on Debian/Ubuntu:
-  `sudo apt-get install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended`;
-  on macOS: [MacTeX](https://www.tug.org/mactex/))
+  `sudo apt-get install texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-lang-cyrillic && sudo mktexlsr`;
+  on macOS: [MacTeX](https://www.tug.org/mactex/) includes everything needed).
+  The last two packages provide the `XCharter` font used for body text —
+  `texlive-lang-cyrillic` is only needed because `XCharter.sty` unconditionally
+  requires Cyrillic encoding support even though the resume doesn't use it.
 - Python 3.9+
 - `pip install jinja2 pyyaml`
 
 **Commands:**
 
 ```bash
-make resume                  # builds content/*.yaml -> output/resume-general.pdf
+make resume                  # builds content/*.yaml -> output/<Name>_Resume.pdf
 make resume VARIANT=ruby     # builds a specific variant (see below)
 make variants                # builds every variant defined in content/variants.yaml
 make clean                   # removes generated files from output/
 make watch                   # rebuilds automatically on file changes (needs `entr`)
 ```
 
-Output lands in `output/resume-<variant>.pdf`.
+Output lands in `output/<Name>_Resume.pdf` for the `general` variant, or
+`output/<Name>_Resume_<Variant>.pdf` for any other variant — named after
+`personal.yaml`'s `name` field rather than a generic "resume-general.pdf",
+since a recognizable filename is less likely to get lost once it's one of
+several files a recruiter has open or has downloaded.
 
 ## Editing in VS Code + LaTeX Workshop
 
 This repo works fine with the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 extension for live preview of the *generated* `.tex` file:
 
-1. Run `make resume` once to generate `output/resume-general.tex`.
+1. Run `make resume` once to generate the `.tex` file in `output/`.
 2. Open that generated `.tex` file in VS Code with LaTeX Workshop installed;
    it will build/preview it directly like any other LaTeX file.
 3. Remember the generated `.tex` file is disposable output, not the source —

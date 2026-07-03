@@ -14,6 +14,7 @@ No custom templating language, no hidden magic. See README.md for the
 full explanation of why this approach was chosen over a heavier framework.
 """
 
+import re
 import sys
 import subprocess
 from pathlib import Path
@@ -74,6 +75,20 @@ def escape_latex(value):
     # re-escaped.
     out = out.replace("|", r"$|$")
     return out
+
+
+def output_basename(person_name, variant_name):
+    """Build a filename like Alain_Roy_Francisco_Resume[_Variant].
+
+    Filenames matter here beyond aesthetics: a generic name like
+    "resume-general.pdf" is easy for a recruiter to lose track of once
+    it's one of a dozen open tabs or downloads, and some ATS tools surface
+    the original filename in their UI. Including the candidate's name and
+    "Resume" is a standard, low-effort convention worth following.
+    """
+    slug = re.sub(r"[^A-Za-z0-9]+", "_", person_name).strip("_")
+    suffix = "" if variant_name == "general" else f"_{variant_name.capitalize()}"
+    return f"{slug}_Resume{suffix}"
 
 
 def get_variant_tags(variant_name):
@@ -138,7 +153,8 @@ def main():
     )
 
     OUTPUT.mkdir(exist_ok=True)
-    tex_path = OUTPUT / f"resume-{variant_name}.tex"
+    basename = output_basename(personal["name"], variant_name)
+    tex_path = OUTPUT / f"{basename}.tex"
     tex_path.write_text(rendered, encoding="utf-8")
     print(f"Wrote {tex_path}")
 
@@ -161,7 +177,7 @@ def main():
             print(result.stderr[-2000:])
             sys.exit(f"pdflatex failed for variant '{variant_name}'")
 
-    pdf_path = OUTPUT / f"resume-{variant_name}.pdf"
+    pdf_path = OUTPUT / f"{basename}.pdf"
     print(f"Built {pdf_path}")
 
 

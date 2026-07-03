@@ -31,7 +31,12 @@ jobs:
             texlive-latex-base \
             texlive-latex-recommended \
             texlive-latex-extra \
-            texlive-fonts-recommended
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-lang-cyrillic
+
+      - name: Refresh TeX Live file database
+        run: sudo mktexlsr
 
       - name: Build all resume variants
         run: python3 scripts/build_all.py
