@@ -16,5 +16,8 @@
 - category: Testing
   items: "RSpec, CI/CD"
 
+- category: AI Engineering
+  items: "Claude, AI-Assisted Development, Harness Engineering, Planning & Verification-Driven Workflows"
+
 - category: Others
   items: "Agile, Mentoring, Technical Decision-Making, Project Management"

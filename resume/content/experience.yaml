@@ -3,6 +3,15 @@
 # and README.md "Creating Additional Resume Variants" for details).
 # Leave `tags` empty/omitted to include the entry in every variant.
 
+- company: Lavanda
+  title: Senior Software Engineer
+  dates: "2025-2026"
+  location: ""
+  url: ""
+  bullets:
+    - "Collaborated closely with other development teams to build new features while maintaining and supporting existing systems. Led firefighting efforts on reporting issues, ensuring the values shown to customers were up to date, accurate, and correct."
+    - "Upskilled on Claude and AI-assisted development, shifting from a traditional coding-focused mindset to a harness engineering approach centered on planning and verification rather than manual implementation, in order to keep pace with changing engineering practices."
+
 - company: Helpling Group
   title: Software Engineer
   dates: "2023-2025"
