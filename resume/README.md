@@ -199,7 +199,10 @@ anything under `resume/`:
 
 1. Checks out the repo and sets up Python.
 2. Installs `jinja2` and `pyyaml`.
-3. Installs a minimal TeX Live toolchain via `apt-get`.
+3. Installs a TeX Live toolchain via `apt-get`, including the
+   `texlive-fonts-extra` and `texlive-lang-cyrillic` packages the
+   `XCharter` font needs (see "Dependencies" above for why), then
+   refreshes TeX Live's file database with `mktexlsr`.
 4. Runs `scripts/build_all.py`, which builds every variant defined in
    `content/variants.yaml` (or just `general` if that file doesn't exist
    yet).
@@ -212,16 +215,21 @@ generated on demand locally or pulled from the latest Actions run. Delete
 the two `output/*.pdf` lines in `.gitignore` if you'd rather commit them
 directly.
 
-## A couple of things worth knowing about the converted content
+## A couple of things worth knowing about the content
 
-- The original PDF resume showed GitHub/LinkedIn usernames as icon labels
-  without full URLs visible in the text layer. I filled in
-  `https://github.com/<username>` and `https://linkedin.com/in/<username>`
-  in `content/personal.yaml` as the standard URL pattern for those
-  labels — worth a quick check that they're correct.
-- The source resume had no Education or Projects sections, so
-  `content/education.yaml` and `content/projects.yaml` are intentionally
+- The original PDF resume (`../archive/ruby-developer.pdf`) showed
+  GitHub/LinkedIn usernames as icon labels without full URLs visible in
+  the text layer. `https://github.com/<username>` and
+  `https://linkedin.com/in/<username>` were filled in as the standard URL
+  pattern for those labels in `content/personal.yaml` — worth a quick
+  check that they're still correct if either username changes.
+- `content/education.yaml` and `content/projects.yaml` are intentionally
   empty placeholders (the template just omits those sections when empty).
-  Fill them in whenever you're ready.
-- Wording was preserved as-is from the original PDF; nothing was rewritten
-  or embellished.
+  Fill them in whenever there's real content for them — don't invent
+  entries just to fill the section.
+- The very first conversion preserved the original PDF's wording exactly.
+  Since then, `experience.yaml` bullets have been rewritten with real
+  detail (team scope, concrete actions, quantified results) gathered
+  directly from the person the resume is about — the same rule still
+  applies going forward: expand and sharpen wording freely, but never
+  invent an achievement, number, or scope that wasn't actually confirmed.

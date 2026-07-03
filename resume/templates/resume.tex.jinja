@@ -107,6 +107,10 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \BLOCK{for group in skills}
+     % group['items'], not group.items — Jinja tries attribute access
+     % first, and Python dicts have a built-in .items() method, so a bare
+     % .items here silently returns that bound method instead of the
+     % content value.
      \textbf{\VAR{group.category}}{: \VAR{group['items']}} \\
      \BLOCK{endfor}
     }}
@@ -119,6 +123,12 @@
   \resumeSubHeadingListStart
 
     \BLOCK{for job in experience}
+    % Needspace forces the whole entry (heading + bullets) onto the next
+    % page if it won't fully fit on the current one, instead of letting
+    % LaTeX split a job's heading from its own bullets across the page
+    % break. The line estimate is rough (2 lines for the heading row +
+    % ~3 lines per bullet at this column width) — generous on purpose,
+    % since wasting a little whitespace beats an orphaned heading.
     \Needspace{\VAR{2 + 3 * (job.bullets|length)}\baselineskip}
     \resumeSubheading
       {\VAR{job.company}}{\VAR{job.dates}}
