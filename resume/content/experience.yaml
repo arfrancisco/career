@@ -6,7 +6,7 @@
 - company: Lavanda
   title: Senior Software Engineer
   dates: "2025-2026"
-  location: ""
+  location: "London, UK"
   url: ""
   bullets:
     - "Collaborated closely with other development teams to build new features while maintaining and supporting existing systems. Led firefighting efforts on reporting issues, ensuring the values shown to customers were up to date, accurate, and correct."
@@ -18,8 +18,10 @@
   location: "Berlin, DE"
   url: "https://www.helpling.com/"
   bullets:
-    - "Worked closely with product owners to evaluate the feasibility, impact, and value of proposed features. Proactively challenged assumptions and provided accurate effort estimations to help with decision making. Created comprehensive technical documentation to support clarity and provide a reliable source of truth."
+    - "Worked closely with product owners to evaluate the feasibility, impact, and value of proposed features, as part of a cross-functional squad of 5 engineers, a product owner, and a QA engineer that also coordinated with roughly 4 other development teams. Proactively challenged assumptions and provided accurate effort estimations to help with decision making. Created comprehensive technical documentation to support clarity and provide a reliable source of truth."
     - "Defined implementation strategies focused on scalability and maintainability. Helped establish coding standards to improve efficiency and reduce technical debt. Actively supported and mentored team members, resolving blockers and fostering a culture of collaboration."
+    - "As senior engineer, focused primarily on design, architecture, and testing and QA strategy for new pricing and promotions features rather than hands-on coding, weighing build effort against potential value before committing the team to the work."
+    - "Built observability into pricing and promotions releases so feature impact could be verified in production after launch, rather than assumed."
 
 - company: Radiant Law
   title: Software Engineer
@@ -27,8 +29,10 @@
   location: "Cape Town, SA"
   url: "https://www.radiantlaw.com/"
   bullets:
-    - "As the sole developer, I took on the challenge of transforming a fragile, monolithic codebase that was rushed to production with no tests, documentation, or clear structure. The system had been in active use for years, making changes risky and complex. Collaborated with users to better understand critical workflows before planning any refactor."
-    - "Successfully prioritized and refactored core components, introduced automated testing, and created comprehensive documentation. Significantly improving stability and developer onboarding. Achieved this while simultaneously delivering new features and fixing critical bugs."
+    - "As the sole developer for most of the engagement, I took on the challenge of transforming a fragile, monolithic codebase that was rushed to production with no tests, documentation, or clear structure. The original author was no longer with the company, and the system was an internal tool used by roughly 20 to 30 people, which let me work directly with users to understand critical workflows before planning any refactor."
+    - "Prioritized and refactored core components, restructured the codebase for maintainability, and introduced end-to-end test coverage that was previously near nonexistent, significantly improving stability and developer onboarding while simultaneously delivering new features and fixing critical bugs."
+    - "Owned infrastructure end-to-end as the sole developer, including architecture, scaling, and monitoring, and led a full migration of the application's infrastructure from Heroku to Google Cloud Platform."
+    - "Ahead of transitioning the codebase to an external Ruby consultancy near the end of the engagement, used GitHub Copilot and Claude Code as an early step into AI-assisted development to accelerate understanding of the aging monolith and build out missing documentation and convention guidelines to support the handoff."
 
 - company: Launchpad Recruits
   title: Software Engineer
@@ -36,8 +40,9 @@
   location: "London, UK"
   url: ""
   bullets:
-    - "Joined the team to address major performance issues caused by heavy database operations and slow page rendering. Actively participated in architectural discussions to separate the frontend from the backend, leading to the adoption of React.js for the UI and GraphQL as the API layer."
-    - "Primarily responsible for converting existing views to React.js, implementing GraphQL endpoints, and creating technical documentation to support the new architecture. Collaborated closely with stakeholders to prioritize components for migration, ensuring minimal disruption to daily operations."
+    - "Joined the team to address major performance issues caused by heavy database operations and slow page rendering, and actively participated in architectural discussions to separate the frontend from the backend."
+    - "Contributed to the adoption of React.js for the UI and GraphQL as the API layer, then took primary responsibility for converting existing views to React.js and implementing GraphQL endpoints."
+    - "Created technical documentation to support the new architecture and collaborated closely with stakeholders to prioritize components for migration, ensuring minimal disruption to daily operations."
 
 - company: Cohort Solutions
   title: Software Developer
@@ -45,7 +50,8 @@
   location: "Brisbane, AU"
   url: ""
   bullets:
-    - "Worked remotely with a Brisbane-based team, building and maintaining a secure live payment app in Ruby on Rails and React. Despite no prior React experience, I quickly ramped up and delivered features under a strict peer review process."
+    - "Worked remotely with a Brisbane based team, building and maintaining a secure live payment app in Ruby on Rails and React."
+    - "Had no prior React experience joining the project, but ramped up quickly and delivered features under a strict peer review process."
 
 - company: Clinic-IT
   title: Software Developer
@@ -53,4 +59,5 @@
   location: "New York, US"
   url: ""
   bullets:
-    - "Joined as part of a small pioneer team with no standards or processes in place. Helped establish coding practices, peer reviews, and procedures, while retrofitting legacy apps for stability. Wore multiple hats; DevOps, tech support, and development. Gaining strong technical expertise and a solid work ethic."
+    - "Joined as part of a small pioneer team with no standards or processes in place, and helped establish coding practices, peer reviews, and procedures for the group."
+    - "Retrofitted legacy applications for stability while wearing multiple hats across DevOps, tech support, and development, building strong technical expertise and a solid work ethic along the way."

@@ -67,6 +67,12 @@ def escape_latex(value):
             continue
         out = out.replace(char, repl)
     out = out.replace("\x00BACKSLASH\x00", r"\textbackslash{}")
+    # A bare "|" in text mode doesn't render as a vertical bar in this
+    # template's default OT1/Computer Modern setup (the template itself
+    # works around this in the header by hardcoding "$|$"). Do the same
+    # for content, after the escaping above so the inserted "$" isn't
+    # re-escaped.
+    out = out.replace("|", r"$|$")
     return out
 
 

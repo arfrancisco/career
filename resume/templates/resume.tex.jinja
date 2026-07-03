@@ -19,10 +19,12 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{lastpage}
+\usepackage{needspace}
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyfoot{}
+\fancyfoot[C]{\small \VAR{personal.name} $|$ Page \thepage\ of \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -115,6 +117,7 @@
   \resumeSubHeadingListStart
 
     \BLOCK{for job in experience}
+    \Needspace{\VAR{2 + 3 * (job.bullets|length)}\baselineskip}
     \resumeSubheading
       {\VAR{job.company}}{\VAR{job.dates}}
       {\VAR{job.title}}{\VAR{job.location}}
